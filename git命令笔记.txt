@@ -1,0 +1,110 @@
+git add xxx.txt
+#add需要提交的文件，工作区->暂存区
+git commit -m "message"
+#提交到当前分支，暂存区->版本库
+
+git reset --hard HEAD^
+#版本回退，回到上一个版本，上上一个版本用HEAD^^，或直接加版本号
+
+git status
+#显示当前状态
+git log
+#显示log
+
+git checkout -- filename
+#撤销filename的修改，把filename回到暂存区或版本库的状态，即回到最近一次git commit或git add的状态
+git reset HEAD <file>
+#把暂存区内的内容撤销掉，并重新放回工作区，相当于取消git add
+
+git rm xxx.txt
+#删除xxx.txt文件
+git commit -m "delete xxx.txt"
+#提交删除文件到版本库
+
+git branch
+#显示所有分支信息
+git branch dev
+#创建dev分支
+git switch dev
+#切换到dev分支
+git merge dev
+#把dev分支内容merge到当前分支上
+git branch -d dev
+#删除dev分支
+git branch -D dev
+#强行删除一个未被合并过的分支
+
+git merge --no-ff -m "merge with no-ff" dev
+#合并dev，merge到当前分支上，--no-ff表示禁用Fast forward
+
+git stash
+#存储当前工作现场
+git stash pop
+#恢复之前存储的工作现场
+git stash list
+#查看stash存储的所有工作现场
+git stash apply stash@{0}
+#恢复工作现场stash@{0}
+git stash drop
+#丢弃stash存储的工作现场
+
+git cherry-pick 4c805e2
+#把4c805e2改动的内容复制到当前分支上
+
+git remote
+#显示远程库信息
+git remote -v
+#显示远程库详细信息
+git remote add origin https://github.com/myname/learngit.git
+#连接远程库
+git push origin master
+#把本地的master分支push到远处库
+
+git clone git@github.com:myname/learngit.git
+#克隆远程库到本地
+
+git branch --set-upstream-to=origin/dev dev
+#把本地的dev分支与远程origin/dev分支链接（显示no tracking information说明当前分支没有与远程库建立链接）
+
+git pull
+#从远程库下载最新更新
+
+git tag <tagname>
+#新建一个标签，默认为HEAD，也可以指定一个commit id
+git tag v1.0 f52c633
+#指定commit f52c633建立一个标签v1.0
+git tag -a <tagname> -m "message"
+#-m指定标签信息
+git tag
+#显示所有标签
+git show v1.0
+#显示v1.0的标签说明信息
+git tag -d v1.0
+#删除标签v1.0
+
+git push origin <tagname>
+#推送一个本地标签
+git push origin --tags
+#推送全部未推送过的本地标签
+git tag -d <tagname>
+#删除一个本地标签
+git push origin :refs/tags/<tagname>
+#删除一个远程标签（必须现在本地删除此标签）
+
+########################################################
+git根目录下创建一个特殊的.gitignore文件，把你需要忽略的文件名放进去，git会自动忽略这些文件
+常用配置文件表：https://github.com/github/gitignore
+
+########################################################
+搭建git服务器
+sudo apt-get install git
+sudo adduser git
+#创建一个用户git
+#把所有用户的公钥信息偷添加到/home/git/.ssh/authorized_keys中，一行一个
+sudo git init --bare sample.git
+#在当前目录下初始化git仓库sample.git
+sudo chown -R git:git sample.git
+#为了不让用户直接登录到服务器上去改工作区，把owner改为git
+
+git clone git@server:/srv/sample.git
+#在自己电脑上用git clone克隆远程仓库
