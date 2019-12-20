@@ -71,6 +71,12 @@ git branch --set-upstream-to=origin/dev dev
 git pull
 #从远程库下载最新更新
 
+# 如果在远程库中进行了在线编辑，但没有同步本地库，之后push会报错
+error：failed to push some refs to
+# 因此这里需要先把远程库中的更新合并到本地库中，--rebase的作用是取消掉本地库中刚刚的commit，并把他们接到更新后的版本库之中
+git pull --rebase origin master
+# 之后在重新push
+
 git tag <tagname>
 #新建一个标签，默认为HEAD，也可以指定一个commit id
 git tag v1.0 f52c633
