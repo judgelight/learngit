@@ -99,3 +99,21 @@ git根目录下创建一个特殊的`.gitignore` 文件，把你需要忽略的�
 
 常用配置文件表： https://github.com/github/gitignore
 
+# 一个协同开发过程中的 Git 使用流程如下：
+
+1. 克隆仓库：使用命令 `git clone [repository_url]` 将远程仓库克隆到本地。
+
+2. 创建分支：使用命令 `git checkout -b [branch_name]` 创建一个新的分支并切换到该分支。
+
+3. 修改代码：在本地修改代码并保存。
+
+4. 提交代码：使用命令 `git add [file_name]` 将修改后的文件添加到暂存区，然后使用命令 `git commit -m "[commit_message]"` 将代码提交到当前分支。
+
+5. 同步代码：使用命令 `git pull origin [branch_name]` 从远程仓库获取最新代码，并使用命令 `git push origin [branch_name]` 将本地代码推送到远程仓库。
+
+6. 合并代码：使用命令 `git checkout [main_branch_name]` 切换到主分支，然后使用命令 `git merge [branch_name]` 将分支合并到主分支。
+
+7. 推送代码：使用命令 `git push origin [main_branch_name]` 将合并后的代码推送到远程仓库。
+
+这是一个大致的流程，根据实际需求可以做出相应的调整。
+
