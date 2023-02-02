@@ -19,7 +19,7 @@ git reset HEAD <file>
 #把暂存区内的内容撤销掉，并重新放回工作区，相当于取消git add
 
 git rm xxx.txt
-#删除xxx.txt文件
+#从版本库中删除xxx.txt文件
 git commit -m "delete xxx.txt"
 #提交删除文件到版本库
 
@@ -108,7 +108,7 @@ git根目录下创建一个特殊的.gitignore文件，把你需要忽略的文�
 sudo apt-get install git
 sudo adduser git
 #创建一个用户git
-#把所有用户的公钥信息偷添加到/home/git/.ssh/authorized_keys中，一行一个
+#把所有用户的公钥信息都添加到/home/git/.ssh/authorized_keys中，一行一个
 sudo git init --bare sample.git
 #在当前目录下初始化git仓库sample.git
 sudo chown -R git:git sample.git
