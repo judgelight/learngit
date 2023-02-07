@@ -7,6 +7,8 @@
 ### 文件管理
 
 * `git add xxx.txt ` : add需要提交的文件，工作区->暂存区
+* `git reset` : 放弃所有在暂存区的修改
+  * `git rest <filename>` : 放弃add到暂存区<filename>的修改
 * `git rm xxx.txt`  : 从版本库中删除xxx.txt文件
 * `git mv` : 移动或重命名文件
 * `git checkout -- filename` : 撤销修改或回到某一个版本
