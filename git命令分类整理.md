@@ -8,7 +8,7 @@
 
 * `git add xxx.txt ` : add需要提交的文件，工作区->暂存区
 * `git reset` : 放弃所有在暂存区的修改
-  * `git rest <filename>` : 放弃add到暂存区<filename>的修改
+  * `git reset <filename>` : 放弃add到暂存区<filename>的修改
 * `git rm xxx.txt`  : 从版本库中删除xxx.txt文件
 * `git mv` : 移动或重命名文件
 * `git checkout -- filename` : 撤销修改或回到某一个版本
@@ -27,7 +27,8 @@
 
 * `git status` : 查看当前Git仓库的状态
 * `git log` : 查看项目的版本历史记录
-* `git diff` : 查看两个版本之间的差异
+* `git diff` : 查看两个版本之间的差异，可以查看工作区与仓库代码的差别
+  * 按 `q` 退出
 
 ### 远程仓库管理
 
